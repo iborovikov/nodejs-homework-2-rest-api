@@ -13,4 +13,6 @@ router.get('/logout', authenticate, controllerWrapper(ctrl.logout))
 
 router.get('/current', authenticate, controllerWrapper(ctrl.getCurrentUser))
 
+router.patch('/subscription/:status', authenticate, controllerWrapper(ctrl.updateUserSubscrition))
+
 module.exports = router
