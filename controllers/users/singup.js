@@ -6,7 +6,7 @@ const { User } = require('../../models')
 
 const singup = async (req, res) => {
   const { email, password } = req.body
-  const avatar = gravatar.url(email)
+  const avatar = gravatar.url(email, { protocol: 'http', s: '250' })
   const user = await User.findOne({ email })
   if (user) {
     throw new Conflict('Email in use')

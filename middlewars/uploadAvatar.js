@@ -5,6 +5,10 @@ const tempDir = path.join(__dirname, '../', 'temp')
 
 const uploadConfig = multer.diskStorage({
   destination: (req, file, cb) => {
+    const fileFormat = file.mimetype.split('/')
+    if (fileFormat[fileFormat.length - 1] !== 'jpeg') {
+      return cb(new Error('Wrong file type'))
+    }
     cb(null, tempDir)
   },
   filename: (req, file, cb) => {
