@@ -1,4 +1,4 @@
-const { Unauthorized, NotFound } = require('http-errors')
+const { Unauthorized, NotFound, BadRequest } = require('http-errors')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
@@ -16,6 +16,11 @@ const login = async (req, res) => {
   if (!comparePassword) {
     throw new Unauthorized('Email or password is wrong')
   }
+  console.log(user)
+  if (!user.verify) {
+    throw new BadRequest('Email need to be verifyed')
+  }
+
   const payload = { id: user._id }
   const token = jwt.sign(payload, SECRET_KEY, { expiresIn: '3h' })
   await User.findByIdAndUpdate(user._id, { token })
