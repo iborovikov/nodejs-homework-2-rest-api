@@ -18,7 +18,7 @@ const retryVeify = async (req, res) => {
     to: email,
     from: 'ivans.borovikovs@live.com',
     subject: 'Verify',
-    html: `<a href="http://localhost:3000/api/users/verify/${verificationToken}">Нжми для подтверждения<a>`
+    html: `<a href="http://localhost:3000/api/users/verify/${verificationToken}">Нжми для подтверждения</a>`
   }
 
   await sendMail(mail)
