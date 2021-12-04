@@ -4,6 +4,8 @@ const logout = require('./logout')
 const getCurrentUser = require('./getCurrentUser')
 const updateUserSubscrition = require('./updateUserSubscrition')
 const updateUserAvatar = require('./updateUserAvatar')
+const verify = require('./verify')
+const retryVeify = require('./retryVeify')
 
 module.exports = {
   singup,
@@ -11,5 +13,7 @@ module.exports = {
   logout,
   getCurrentUser,
   updateUserSubscrition,
-  updateUserAvatar
+  updateUserAvatar,
+  verify,
+  retryVeify
 }
